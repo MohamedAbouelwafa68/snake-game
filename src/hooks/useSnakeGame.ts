@@ -220,5 +220,6 @@ export const useSnakeGame = (config?: Partial<GameConfig>) => {
     cellSize,
     startGame,
     resetGame,
+    changeDirection,
   };
 };

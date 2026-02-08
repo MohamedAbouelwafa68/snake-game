@@ -101,6 +101,9 @@ const GameBoard = ({ snake, food, gridSize, cellSize, gameStatus }: GameBoardPro
         border: '3px solid #0f3460',
         borderRadius: '8px',
         boxShadow: '0 0 20px rgba(15, 52, 96, 0.5)',
+        maxWidth: '100%',
+        height: 'auto',
+        touchAction: 'none',
       }}
     />
   );
