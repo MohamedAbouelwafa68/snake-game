@@ -1,5 +1,7 @@
 import { useSnakeGame } from './hooks/useSnakeGame';
+import { useSwipeControls } from './hooks/useSwipeControls';
 import GameBoard from './components/GameBoard';
+import DPad from './components/DPad';
 import { GameStatus } from './types/game';
 import './App.css';
 
@@ -14,7 +16,14 @@ function App() {
     cellSize,
     startGame,
     resetGame,
+    changeDirection,
   } = useSnakeGame();
+
+  // Enable swipe controls when game is playing
+  useSwipeControls({
+    onSwipe: changeDirection,
+    enabled: gameStatus === GameStatus.PLAYING,
+  });
 
   return (
     <div className="app">
@@ -69,8 +78,13 @@ function App() {
           )}
         </div>
 
+        <DPad
+          onDirectionPress={changeDirection}
+          disabled={gameStatus !== GameStatus.PLAYING}
+        />
+
         <div className="instructions">
-          <p>Use arrow keys ⬆️ ⬇️ ⬅️ ➡️ to control the snake</p>
+          <p>Use arrow keys ⬆️ ⬇️ ⬅️ ➡️ or swipe to control the snake</p>
           <p>Eat the red food to grow and score points!</p>
         </div>
       </div>

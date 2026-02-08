@@ -1,0 +1,107 @@
+.dpad-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.dpad {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 8px;
+  width: fit-content;
+}
+
+.dpad-middle {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 8px;
+}
+
+.dpad-button {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #16213e, #0f3460);
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  color: #00d9ff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(15, 52, 96, 0.4);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dpad-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0f3460, #16213e);
+  box-shadow: 0 6px 15px rgba(15, 52, 96, 0.6);
+  transform: translateY(-2px);
+}
+
+.dpad-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.95);
+  box-shadow: 0 2px 5px rgba(15, 52, 96, 0.4);
+}
+
+.dpad-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dpad-button .arrow {
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.6);
+  font-weight: bold;
+}
+
+.dpad-up {
+  grid-column: 2;
+}
+
+.dpad-down {
+  grid-column: 2;
+}
+
+.dpad-center {
+  width: 70px;
+  height: 70px;
+  background: rgba(15, 52, 96, 0.3);
+  border-radius: 12px;
+  border: 2px solid rgba(15, 52, 96, 0.5);
+}
+
+/* Mobile optimizations */
+@media (max-width: 600px) {
+  .dpad-button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
+  }
+  
+  .dpad-center {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dpad-container {
+    padding: 10px;
+  }
+}
+
+/* Touch device specific - larger tap targets */
+@media (hover: none) and (pointer: coarse) {
+  .dpad-button {
+    width: 75px;
+    height: 75px;
+    font-size: 1.6rem;
+  }
+  
+  .dpad-center {
+    width: 75px;
+    height: 75px;
+  }
+}
